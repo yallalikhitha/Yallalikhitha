@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalla Likhitha - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Clean Black and White Classic Resume Sheet Layout */
+        .resume-paper {
+            width: 100%;
+            max-width: 800px;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 3rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        .header-section {
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .resume-row {
+            margin-bottom: 1rem;
+        }
+
+        .row-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .institution {
+            font-style: italic;
+            color: #444;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            line-height: 1.4;
+        }
+
+        /* Control Print and Utilities Setup Area */
+        .actions-bar {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .btn-action {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: 2px solid #000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-download {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-download:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .btn-back {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .btn-back:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .whatsapp-footer {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .whatsapp-footer p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .btn-wa-link {
+            color: #000;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Native Print Override Engine Setup */
+        @media print {
+            .actions-bar, .whatsapp-footer {
+                display: none !important;
+            }
+            body {
+                padding: 0;
+            }
+            .resume-paper {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Utility Controls (Will hidden during dynamic prints) -->
+    <div class="actions-bar">
+        <a href="index.html" class="btn-action btn-back">➔ Back to Portfolio</a>
+        <!-- Uses Native browser engine architecture layout print function -->
+        <button onclick="window.print()" class="btn-action btn-download">Download / Print PDF</button>
+    </div>
+
+    <!-- Printable Paper Sheet -->
+    <div class="resume-paper">
+        <div class="header-section">
+            <h1>Yalla Likhitha</h1>
+            <div class="contact-info">
+                Email: yallalikhitha319@gmail.com | Location: Narsipatnam, Visakhapatnam, AP
+            </div>
+        </div>
+
+        <div class="section-title">Education</div>
+        <div class="resume-row">
+            <div class="row-header">
+                <span>B.Tech in Computer Science and Data Science (CSD)</span>
+                <span>2025 - Present</span>
+            </div>
+            <div class="institution">Avanthi Institute of Engineering and Technology</div>
+            <ul>
+                <li>Current Status: Pursuing 1st Year undergraduate curriculum coursework.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Technical Skills</div>
+        <div class="resume-row">
+            <ul>
+                <li><strong>Core Programming:</strong> C Programming Language Essentials.</li>
+                <li><strong>Emerging Frameworks:</strong> Foundational understanding of Computer Science fundamentals and Data Science methodologies.</li>
+                <li><strong>Web Technologies:</strong> Actively exploring Web Architecture and User Interface layouts.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Key Academic Interests</div>
+        <div class="resume-row">
+            <ul>
+                <li>Algorithmic Programming in C</li>
+                <li>Data Processing & Analytics structures</li>
+                <li>Frontend Application User Experiences</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Area DM Router Section Layout -->
+    <div class="whatsapp-footer">
+        <p>If you are interested with my profile and resume click on here to for DM</p>
+        <a href="https://api.whatsapp.com/send?phone=918179340273&text=HEY%20LIKHITHA%2C%20I%20just%20said%20your%20protofole%20it%20was%20interesting." target="_blank" class="btn-wa-link">
+            Connect directly via WhatsApp Chat ➔
+        </a>
+    </div>
+
+</body>
+</html>
