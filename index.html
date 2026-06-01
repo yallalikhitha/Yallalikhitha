@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalla Likhitha - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        /* Full Screen States */
+        .screen-phase {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* PHASE 1: YELLOW INTRO FLASH (💛) */
+        #phase-yellow {
+            background-color: #fdfad2; /* Soft premium yellow */
+            color: #0b1354;
+            visibility: visible;
+            animation: introFlash 4s ease-in-out forwards;
+        }
+
+        .welcome-text {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: textFadeInUp 3.5s ease-in-out forwards;
+        }
+
+        /* PHASE 2: SOFT GREY TYPING EFFECT (🩶) */
+        #phase-grey {
+            background-color: #8e8e93; /* Premium Soft Grey */
+            color: #ffffff;
+            animation: greyFadeIn 8s ease-in-out forwards;
+            animation-delay: 4s; /* Starts right after yellow exit */
+        }
+
+        .typing-container {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typingEffect 3s steps(30, end) forwards, blinkCursor 0.5s step-end infinite;
+            animation-delay: 4.5s;
+        }
+
+        /* PHASE 3: THE MAIN STAGE DEEP BLACK (🖤) */
+        #phase-black {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            animation: finalStageLock 1s ease-in-out forwards;
+            animation-delay: 11s; /* Starts after typing phase */
+        }
+
+        .main-content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .main-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #fdfad2; /* Glowing title color highlight */
+        }
+
+        .main-content h2 {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .info-line {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #e5e5ea;
+        }
+
+        .info-line strong {
+            color: #fdfad2;
+        }
+
+        /* Dynamic CTA Action Buttons */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            color: #000;
+            background-color: #fdfad2;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid #fdfad2;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253, 250, 210, 0.2);
+        }
+
+        .btn-main:hover {
+            background-color: transparent;
+            color: #fdfad2;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 250, 210, 0.4);
+        }
+
+        .dm-text {
+            font-size: 0.95rem;
+            color: #8e8e93;
+            max-width: 400px;
+            line-height: 1.4;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #25d366;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 1px dashed #25d366;
+            padding-bottom: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-whatsapp:hover {
+            color: #1ebd54;
+            border-bottom-color: #1ebd54;
+        }
+
+        /* --- STYLISH CSS ANIMATIONS MATRIX --- */
+        @keyframes introFlash {
+            0% { opacity: 1; visibility: visible; }
+            85% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes textFadeInUp {
+            0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+            20% { opacity: 1; transform: translateY(0) scale(1); }
+            80% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+        }
+
+        @keyframes greyFadeIn {
+            0% { opacity: 0; visibility: visible; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes typingEffect {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+
+        @keyframes finalStageLock {
+            0% { opacity: 0; visibility: hidden; }
+            100% { opacity: 1; visibility: visible; position: absolute; }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .welcome-text { font-size: 2.2rem; text-align: center; padding: 1rem; }
+            .typing-container { font-size: 1.6rem; }
+            .main-content h1 { font-size: 2.5rem; }
+            .profile-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SCREEN 1: YELLOW VELOCITY (💛) -->
+    <div class="screen-phase" id="phase-yellow">
+        <div class="welcome-text">Welcome to my portfolio</div>
+    </div>
+
+    <!-- SCREEN 2: METALLIC GRAY SEGMENT (🩶) -->
+    <div class="screen-phase" id="phase-grey">
+        <div class="typing-container">I'm here Likhitha and this is about me...</div>
+    </div>
+
+    <!-- SCREEN 3: HIGH CONTRAST DARK MODE (🖤) -->
+    <div class="screen-phase" id="phase-black">
+        <div class="main-content">
+            <h1>Yalla Likhitha</h1>
+            <h2>Computer Science & Data Science Student</h2>
+            
+            <div class="profile-card">
+                <div class="info-line"><strong>College:</strong> Avanthi Institute of Engineering and Technology</div>
+                <div class="info-line"><strong>Branch:</strong> CSD (Data Science Domain)</div>
+                <div class="info-line"><strong>Current Status:</strong> 1st Year Graduate</div>
+                <div class="info-line"><strong>Core Skills Stack:</strong> C Programming Language</div>
+            </div>
+
+            <div class="btn-container">
+                <!-- Links dynamically to your standalone page structure -->
+                <a href="resume.html" class="btn-main">My Resume</a>
+                
+                <p class="dm-text">If you are interested with my profile and resume click on here to for DM</p>
+                
+                <!-- Explicit WhatsApp automated API route mapping -->
+                <a href="https://api.whatsapp.com/send?phone=918179340273&text=HEY%20LIKHITHA%2C%20I%20just%20said%20your%20protofole%20it%20was%20interesting." target="_blank" class="btn-whatsapp">
+                    Chat on WhatsApp ➔
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
